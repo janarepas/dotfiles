@@ -4,6 +4,7 @@ local config = wezterm.config_builder()
 
 -- Átlátszóság
 config.window_background_opacity = 0.5
+config.macos_window_background_blur = 45
 config.inactive_pane_hsb = {
   saturation = 1.0,
   brightness = 0.4,
