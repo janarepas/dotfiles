@@ -1,2 +1,2 @@
-require("jrepas.set")
+require("jrepas.settings")
 require("jrepas.remap")
