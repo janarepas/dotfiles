@@ -2,7 +2,7 @@
 -o "~/Downloads/%(title)s.%(ext)s"
 
 --write-subs
---sub-lang "en.*"
+--sub-lang "hu.*"
 --sub-format "srt"
 --no-continue
 --no-part
