@@ -9,7 +9,7 @@ config.font_size = 18
 config.color_scheme = "Tokyo Night"
 
 -- Transparency
-config.window_background_opacity = 0.5
+config.window_background_opacity = 0.85
 config.macos_window_background_blur = 45
 config.inactive_pane_hsb = {
   saturation = 1.0,
