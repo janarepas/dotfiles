@@ -1,0 +1,30 @@
+syntax on
+set termguicolors
+set number
+set relativenumber
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set colorcolumn=80
+
+" Plugins
+call plug#begin('~/.vim/plugged')
+  Plug 'ghifarit53/tokyonight-vim'
+	Plug 'junegunn/fzf'
+	Plug 'junegunn/fzf.vim'
+call plug#end()
+
+colorscheme tokyonight
+set nowrap
+set noswapfile
+set nobackup
+set nowritebackup
+set hlsearch
+set incsearch
+set scrolloff=8
+
+nnoremap <Space>pv :Ex      <CR>
+nnoremap <Space>pf :Files   <CR> 
+nnoremap <Space>pb :Buffer  <CR>
+nnoremap <Space>pl :Lines   <CR>
+nnoremap <Space>pg :Rg      <CR>
