@@ -1,0 +1,13 @@
+
+[font]
+size = 24
+
+[font.normal]
+family = "Fira Code"
+style = "Regular"
+
+[window]
+startup_mode = "Fullscreen"
+
+[general]
+import = ["~/.config/alacritty/tokyo-night.toml"]

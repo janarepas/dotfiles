@@ -1,0 +1,20 @@
+set realname        = 'Répás János'
+set imap_user       = 'jana.repas@gmail.com'
+set imap_pass       = 'hytt nzms efol dyks'
+set smtp_url        = 'smtps://jana.repas@smtp.gmail.com:465'
+set smtp_pass       = 'hytt nzms efol dyks'
+set folder          = 'imaps://jana.repas@smtp.gmail.com:993'
+set spoolfile       = '+INBOX'
+
+set from            = 'jana.repas@gmail.com'
+set envelope_from
+set use_from        = 'yes'
+set record          = '+[Gmail]/Sent Mail'
+set trash           = '+[Gmail]/Trash'
+set postponed       = '+[Gmail]/Drafts'
+set mail_check      = 6
+set editor          = 'nvim'
+unset imap_passive
+
+set imap_keepalive  = 300
+set ssl_force_tls   = yes

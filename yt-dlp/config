@@ -1,0 +1,16 @@
+-f "bv*+ba/best"
+-o "~/Downloads/%(title)s.%(ext)s"
+
+--write-subs
+--sub-lang "hu.*"
+--sub-format "srt"
+--no-continue
+--no-part
+--no-overwrites
+--console-title
+--no-warnings
+--quiet
+--write-thumbnail
+--embed-metadata
+--embed-thumbnail
+--merge-output-format "mp4"
