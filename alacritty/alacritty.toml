@@ -1,47 +1,21 @@
-[font]
-size = 24.0
-
-[window.dimensions]
-columns = 130
-lines = 40
+[general]
+import = ["~/.config/alacritty/themes/tokyo_night.toml"]
 
 [window]
-opacity = 0.80
-blur = true
-padding = { x = 10,y = 10}
-# decorations = "Buttonless"
+dimensions = { columns = 120, lines = 45 }
+padding = { x = 5, y = 5 }
+opacity = 0.975
 
-[colors.primary]
-background = '#24283b'
-foreground = '#c0caf5'
+[font]
+size = 16.0
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular"}
+bold = { family = "JetBrainsMono Nerd Font", style = "Bold"}
+italic = { family = "JetBrainsMono Nerd Font", style = "Italic"}
 
-[colors.cursor]
-text = '#24283b'
-cursor = '#c0caf5'
+[scrolling]
+history =     10000
 
-[colors.normal]
-black   = '#1d202f'
-red     = '#f7768e'
-green   = '#9ece6a'
-yellow  = '#e0af68'
-blue    = '#7aa2f7'
-magenta = '#bb9af7'
-cyan    = '#7dcfff'
-white   = '#a9b1d6'
-
-[colors.bright]
-black   = '#414868'
-red     = '#f7768e'
-green   = '#9ece6a'
-yellow  = '#e0af68'
-blue    = '#7aa2f7'
-magenta = '#bb9af7'
-cyan    = '#7dcfff'
-white   = '#c0caf5'
-
-[[colors.indexed_colors]]
-index = 16
-color = '#ff9e64'
-[[colors.indexed_colors]]
-index = 17
-color = '#db4b4b'
+[cursor]
+style.shape = "Block"
+style.blinking = "Always"
+blink_interval = 1000
