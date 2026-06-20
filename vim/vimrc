@@ -30,5 +30,9 @@ set nobackup
 set noswapfile
 set undofile
 
+" keymaps
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>e :Ex<CR>
 inoremap jk <Esc>
 inoremap jj <Esc>
