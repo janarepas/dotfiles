@@ -4,7 +4,7 @@ import = ["~/.config/alacritty/themes/tokyo_night.toml"]
 [window]
 dimensions = { columns = 120, lines = 30 }
 padding = { x = 5, y = 5 }
-opacity = 0.925
+opacity = 0.975
 
 [font]
 size = 16.0
