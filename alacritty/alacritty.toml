@@ -1,22 +1,26 @@
-[general]
-import = ["~/.config/alacritty/themes/tokyo_night.toml"]
-
 [window]
-dimensions = { columns = 100, lines = 25 }
-padding = { x = 5, y = 5 }
-opacity = 0.975
-blur = true
+opacity = 0.9
+dynamic_padding = true
+padding.x = 2
+padding.y = 2
+
+[cursor.style]
+shape = "Beam"
+blinking = "Never"
+
+[env]
+TERM = "xterm-256color"
 
 [font]
-size = 16.0
-normal = { family = "JetBrains Mono", style = "Regular"}
-bold = { family = "JetBrains Mono", style = "Bold"}
-italic = { family = "JetBrains Mono", style = "Italic"}
+size = 14.0
+normal.family = "MesloLGS Nerd Font Mono"
+normal.style = "Regular"
 
-[scrolling]
-history =     10000
+[font.bold]
+family = "MesloLGS Nerd Font Mono"
+style = "Bold"
 
-[cursor]
-style.shape = "Block"
-style.blinking = "Always"
-blink_interval = 1000
+[font.italic]
+family = "MesloLGS Nerd Font Mono"
+style = "Italic"
+
