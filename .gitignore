@@ -2,3 +2,9 @@
 *.swp
 *.swo
 *~
+
+# Only configuration belongs in Git; history, sockets, locks and app backups stay local.
+/mpv/*
+!/mpv/mpv.conf
+/openlogi/*
+!/openlogi/config.toml

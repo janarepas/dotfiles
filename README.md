@@ -39,6 +39,8 @@ link_if_absent "$PWD/nvim" "${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
 link_if_absent "$PWD/vim/vimrc" "$HOME/.vimrc"
 link_if_absent "$PWD/tmux/tmux.conf" "$HOME/.tmux.conf"
 link_if_absent "$PWD/ghostty" "${XDG_CONFIG_HOME:-$HOME/.config}/ghostty"
+link_if_absent "$PWD/mpv" "${XDG_CONFIG_HOME:-$HOME/.config}/mpv"
+link_if_absent "$PWD/openlogi" "${XDG_CONFIG_HOME:-$HOME/.config}/openlogi"
 ```
 
 Ha már `~/.config/tmux` linket használsz, megtarthatod azt a `~/.tmux.conf`
@@ -133,3 +135,14 @@ nem módosít konfigurációt. Külön jelzi a vágólap hiányzó szolgáltató
 a terminfo-bejegyzéseket és az elérhető Ghostty konfigurációellenőrzését.
 SSH célgépen is futtasd; a színek, billentyűk, vágólap és elmosás tényleges
 működését a célgépen kell ellenőrizni.
+
+
+## mpv és OpenLogi
+
+A `~/.config/mpv` és `~/.config/openlogi` (vagy az XDG_CONFIG_HOME alatti
+megfelelő könyvtárak) a repó `mpv` és `openlogi` könyvtáraira mutatnak.
+Az alkalmazásokat külön kell telepíteni. A Git csak az `mpv/mpv.conf` és
+az `openlogi/config.toml` fájlokat követi; a lejátszási állapot, socketek,
+lockfájlok és az alkalmazás által készített mentések helyben maradnak.
+Az OpenLogi konfiguráció eszközazonosítókat és eszközönkénti beállításokat
+tartalmaz; más gépen/eszközzel ezeket az alkalmazásban kell hozzáigazítani.

@@ -1,0 +1,243 @@
+schema_version = 9
+selected_device = "unit:0a4d6738"
+
+[app_settings]
+launch_at_login = true
+check_for_updates = true
+auto_install_updates = false
+update_prompt_seen = true
+show_in_menu_bar = true
+capture_mouse_events = true
+smooth_scroll = true
+vertical_scroll_sensitivity = 12
+app_icon = "openlogi"
+auto_download_assets = true
+asset_source = "automatic"
+thumbwheel_sensitivity = 12
+appearance = "system"
+ui_scale = "normal"
+device_view_mode = "grid"
+mouse_profile_target = "pointer"
+low_battery_notifications = true
+lock_key_notifications = true
+animate_desktop_switch = true
+
+[devices]
+
+[devices."serial:2533cer2s1l8".identity]
+display_name = "MX Keys Mini"
+codename = "MX Keys Mini"
+kind = "keyboard"
+
+[devices."serial:2533cer2s1l8".identity.model_info]
+entity_count = 3
+unit_id = [
+    0,
+    0,
+    0,
+    0,
+]
+model_ids = [
+    45929,
+    0,
+    0,
+]
+extended_model_id = 0
+
+[keyboard]
+
+[devices."serial:2533cer2s1l8".identity.model_info.transports]
+usb = false
+equad = false
+btle = true
+bluetooth = false
+
+[devices."serial:2533cer2s1l8".links."direct:046d:b369".capabilities]
+buttons = true
+pointer = false
+lighting = false
+scroll_inversion = false
+hires_wheel = false
+thumbwheel = false
+haptic_feedback = false
+haptic_panel = false
+dpi_gestures = false
+fn_lock = false
+os_layout = false
+report_rate = false
+backlight = false
+easy_switch = false
+virtual_thumbwheel = false
+pointer_scaling = false
+
+[devices."serial:2533cer2s1l8".links."receiver:4c7c1b8574cabf81:slot:2".capabilities]
+buttons = true
+pointer = false
+lighting = false
+scroll_inversion = false
+hires_wheel = false
+thumbwheel = false
+haptic_feedback = false
+haptic_panel = false
+dpi_gestures = false
+fn_lock = true
+os_layout = true
+report_rate = false
+backlight = true
+easy_switch = true
+virtual_thumbwheel = false
+pointer_scaling = false
+
+[devices."serial:2533cer2s1l8".identity.capabilities]
+buttons = true
+pointer = false
+lighting = false
+scroll_inversion = false
+hires_wheel = false
+thumbwheel = false
+haptic_feedback = false
+haptic_panel = false
+dpi_gestures = false
+fn_lock = true
+os_layout = true
+report_rate = false
+backlight = true
+easy_switch = true
+virtual_thumbwheel = false
+pointer_scaling = false
+
+[devices."serial:2533cer2s1l8".links."receiver:4c7c1b8574cabf81:slot:4".capabilities]
+buttons = true
+pointer = false
+lighting = false
+scroll_inversion = false
+hires_wheel = false
+thumbwheel = false
+haptic_feedback = false
+haptic_panel = false
+dpi_gestures = false
+fn_lock = false
+os_layout = false
+report_rate = false
+backlight = false
+easy_switch = false
+virtual_thumbwheel = false
+pointer_scaling = false
+
+[devices."unit:0a4d6738"]
+dpi = 800
+scroll_resolution = "low"
+dpi_presets = [800]
+
+[devices."unit:0a4d6738".identity]
+display_name = "MX Master 3"
+codename = "Wireless Mouse MX Master 3"
+kind = "mouse"
+
+[devices."unit:0a4d6738".identity.model_info]
+entity_count = 3
+unit_id = [
+    0,
+    0,
+    0,
+    0,
+]
+model_ids = [
+    45091,
+    16514,
+    0,
+]
+extended_model_id = 2
+
+[devices."unit:0a4d6738".identity.model_info.transports]
+usb = false
+equad = true
+btle = true
+bluetooth = false
+
+[devices."unit:0a4d6738".links."receiver:e260999b:slot:2".capabilities]
+buttons = true
+pointer = true
+lighting = false
+scroll_inversion = true
+hires_wheel = true
+thumbwheel = true
+haptic_feedback = false
+haptic_panel = false
+dpi_gestures = true
+fn_lock = false
+os_layout = false
+report_rate = false
+backlight = false
+easy_switch = false
+virtual_thumbwheel = false
+pointer_scaling = false
+
+[devices."unit:0a4d6738".links."direct:046d:b023".capabilities]
+buttons = true
+pointer = true
+lighting = false
+scroll_inversion = true
+hires_wheel = true
+thumbwheel = true
+haptic_feedback = false
+haptic_panel = false
+dpi_gestures = true
+fn_lock = false
+os_layout = false
+report_rate = false
+backlight = false
+easy_switch = false
+virtual_thumbwheel = false
+pointer_scaling = false
+
+[devices."unit:0a4d6738".bindings]
+DpiToggle = "ToggleSmartShift"
+
+[devices."unit:0a4d6738".identity.capabilities]
+buttons = true
+pointer = true
+lighting = false
+scroll_inversion = true
+hires_wheel = true
+thumbwheel = true
+haptic_feedback = false
+haptic_panel = false
+dpi_gestures = true
+fn_lock = false
+os_layout = false
+report_rate = false
+backlight = false
+easy_switch = false
+virtual_thumbwheel = false
+pointer_scaling = false
+
+[devices."unit:0a4d6738".action_ring]
+enabled = true
+haptics = true
+
+[devices."unit:0a4d6738".smartshift]
+mode = "ratchet"
+auto_disengage = 12
+tunable_torque = 0
+
+[devices."unit:0a4d6738".action_ring.default.slots.TopRight]
+action = "Copy"
+
+[devices."unit:0a4d6738".action_ring.default.slots.Right]
+action = "Paste"
+
+[devices."unit:0a4d6738".action_ring.default.slots.BottomRight]
+action = "BrowserForward"
+
+[devices."unit:0a4d6738".action_ring.default.slots.Bottom]
+action = "PlayPause"
+
+[devices."unit:0a4d6738".action_ring.default.slots.BottomLeft]
+action = "BrowserBack"
+
+[devices."unit:0a4d6738".action_ring.default.slots.Left]
+action = "Undo"
+
+[devices."unit:0a4d6738".action_ring.default.slots.TopLeft]
+action = "Redo"
