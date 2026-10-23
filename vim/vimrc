@@ -71,3 +71,31 @@ nnoremap <silent> <Leader>h :nohlsearch<CR>
 " Leave insert mode
 inoremap jk <Esc>
 inoremap jj <Esc>
+
+" Protect credential files before reading undo, and on rename/write.
+let s:sensitive_patterns = ['*/.env', '*/.env.*', '*.pem', '*.key', '*.p12', '*.pfx', '*/id_rsa', '*/id_ecdsa', '*/id_ed25519', '*/id_dsa', '*/.ssh/*', '*/.gnupg/*', '*/.netrc', '*/.authinfo', '*/.authinfo.gpg', '*/.aws/credentials', '*/.kube/config', '*/.docker/config.json', '*/.npmrc', '*/.pypirc', '*/.git-credentials']
+let &backupskip .= ',' . join(s:sensitive_patterns, ',')
+
+function! s:ProtectSensitiveBuffer() abort
+  let l:name = expand('%:p')
+  let l:resolved = resolve(l:name)
+  for l:pattern in s:sensitive_patterns
+    let l:regex = glob2regpat(l:pattern)
+    if l:name =~# l:regex || l:resolved =~# l:regex
+      if get(b:, 'dotfiles_private_name', '') !=# l:name
+        let &backupskip .= ',' . escape(escape(l:name, '*?[\]'), ',')
+        let b:dotfiles_private_name = l:name
+      endif
+      setlocal noswapfile nomodeline
+      if has('persistent_undo')
+        setlocal noundofile
+      endif
+      return
+    endif
+  endfor
+endfunction
+
+augroup DotfilesPrivacy
+  autocmd!
+  autocmd BufReadPre,BufNewFile,BufFilePost,BufWritePre * call <SID>ProtectSensitiveBuffer()
+augroup END

@@ -79,7 +79,8 @@ A bővítmények a felhasználó jogosultságaival futó kódot tartalmaznak.
 
 ## Vágólap és terminál
 
-A Neovim a rendszer vágólapját használja, ha van szolgáltató:
+A Neovim a rendszer vágólapját használja, ha van szolgáltató; ennek hiányában
+a hagyományos belső regiszterek maradnak aktívak:
 macOS-on `pbcopy`/`pbpaste`, Linux Waylanden `wl-copy`/`wl-paste` (`wl-clipboard`),
 X11-en `xclip` vagy `xsel`. Távoli vagy kijelző nélküli gépen a rendszer-vágólap
 külön beállítást igényelhet. Diagnosztika: `:checkhealth vim.provider`.
@@ -106,3 +107,29 @@ intelligens kis-/nagybetűs keresés. Leader: szóköz.
 Az undo és swap helyreállítást segít; érzékeny tartalom is megmaradhat bennük.
 Az új undo-könyvtárak 0700 jogosultsággal készülnek. Meglévő könyvtárak
 jogosultságát külön ellenőrizd. A swap engedélyezett, külön backup nincs.
+
+
+## Érzékeny fájlok
+
+Vimben és Neovimben automatikusan kikapcsol a swap, a tartós undo és a
+modeline a következő fájloknál: `.env`, `.env.*`, `*.pem`, `*.key`, `*.p12`,
+`*.pfx`, SSH-kulcsok és a `.ssh`/`.gnupg` alatti fájlok, `.netrc`, `.authinfo`,
+AWS credentials, kubeconfig az alapértelmezett helyén, Docker config,
+`.npmrc`, `.pypirc`, `.git-credentials`. A fájlnév és a feloldott szimbolikus
+link célja is számít. Az ideiglenes írási backupokra is vonatkozik a kizárás.
+A már érzékenynek jelölt buffer átnevezés után is védett marad.
+
+Más nevű érzékeny fájlnál szerkesztés előtt: `:setlocal noswapfile noundofile nomodeline`.
+Ez név alapú védelem; nem vizsgálja a tartalmat, és nem törli a korábban
+létrejött undo/swap fájlokat. A regiszterek, parancselőzmények, a rendszer
+vágólapja és a fájlrendszer korábbi másolatai külön kezelendők. Már nyitott
+fájloknál indítsd újra a szerkesztőt a változás után.
+
+## Környezetellenőrzés
+
+A repó gyökeréből futtasd: `sh scripts/check-environment.sh`.
+Az ellenőrzés macOS-on és Linuxon is futtatható; nem telepít csomagokat és
+nem módosít konfigurációt. Külön jelzi a vágólap hiányzó szolgáltatóját,
+a terminfo-bejegyzéseket és az elérhető Ghostty konfigurációellenőrzését.
+SSH célgépen is futtasd; a színek, billentyűk, vágólap és elmosás tényleges
+működését a célgépen kell ellenőrizni.

@@ -33,7 +33,10 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 -- System clipboard
-vim.opt.clipboard:append("unnamedplus")
+-- Keep ordinary registers usable on headless hosts without a provider.
+if vim.fn.has("clipboard") == 1 then
+  vim.opt.clipboard:append("unnamedplus")
+end
 
 -- Filename characters
 vim.opt.isfname:append("@-@")

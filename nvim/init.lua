@@ -2,5 +2,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 require("settings")
+require("privacy")
 require("keymap")
 require("pack")
