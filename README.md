@@ -41,6 +41,11 @@ link_if_absent "$PWD/tmux/tmux.conf" "$HOME/.tmux.conf"
 link_if_absent "$PWD/ghostty" "${XDG_CONFIG_HOME:-$HOME/.config}/ghostty"
 link_if_absent "$PWD/mpv" "${XDG_CONFIG_HOME:-$HOME/.config}/mpv"
 link_if_absent "$PWD/openlogi" "${XDG_CONFIG_HOME:-$HOME/.config}/openlogi"
+link_if_absent "$PWD/qutebrowser" "${XDG_CONFIG_HOME:-$HOME/.config}/qutebrowser"
+if [ "$(uname -s)" = Darwin ]; then
+  mkdir -p "$HOME/.qutebrowser"
+  link_if_absent "$PWD/qutebrowser/config.py" "$HOME/.qutebrowser/config.py"
+fi
 ```
 
 Ha már `~/.config/tmux` linket használsz, megtarthatod azt a `~/.tmux.conf`
@@ -146,3 +151,28 @@ az `openlogi/config.toml` fájlokat követi; a lejátszási állapot, socketek,
 lockfájlok és az alkalmazás által készített mentések helyben maradnak.
 Az OpenLogi konfiguráció eszközazonosítókat és eszközönkénti beállításokat
 tartalmaz; más gépen/eszközzel ezeket az alkalmazásban kell hozzáigazítani.
+
+
+## qutebrowser
+
+Csak a `qutebrowser/config.py` verziókövetett. Linuxon a konfigurációs könyvtár
+az XDG_CONFIG_HOME alatti `qutebrowser` mappa. macOS-on a
+`~/.qutebrowser/config.py` is erre a fájlra mutasson; a többi böngészőadatot
+ne helyezd a repóba. Az `autoconfig.yml` helyi marad és induláskor betöltődik;
+a közös `config.py` beállításai utána elsőbbséget kapnak. Webhelyenkénti
+engedélyek, könyvjelzők, előzmények és munkamenetek nem kerülnek Gitbe.
+
+- `,g`: GitHub-keresés; `,y`: YouTube-keresés.
+- `,v`: az aktuális cím átadása mpv-nek, ha az mpv elérhető. macOS-on a
+  Homebrew szokásos telepítési helyeit is ellenőrzi, mert a Finderből
+  indított app PATH-ja eltérhet a terminálétól.
+- `,p`: Passwords megnyitása, csak macOS-on.
+- A sima görgetés és a lusta munkamenet-visszaállítás bekapcsolva, az
+  automatikus médialejátszás kikapcsolva marad.
+- Reklámblokkolás: `both`, ha az opcionális `adblock` modul telepítve van,
+  különben `hosts`. Listák frissítése a böngészőben: `:adblock-update`.
+- Új webhelyek JavaScript-vágólapengedélye `ask`; a helyileg külön
+  engedélyezett webhelyek ezt felülírhatják. Ezeket a böngészőben lehet
+  visszaállítani: `:config-unset -u https://example.org content.javascript.clipboard`.
+
+Újratöltés a böngészőben: `:config-source`.

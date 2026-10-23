@@ -8,3 +8,7 @@
 !/mpv/mpv.conf
 /openlogi/*
 !/openlogi/config.toml
+
+# Keep browser permissions, sessions and generated files out of version control.
+/qutebrowser/*
+!/qutebrowser/config.py
