@@ -125,7 +125,7 @@ virtual_thumbwheel = false
 pointer_scaling = false
 
 [devices."unit:0a4d6738"]
-dpi = 800
+dpi = 1200
 scroll_resolution = "low"
 dpi_presets = [800]
 
@@ -218,7 +218,7 @@ haptics = true
 
 [devices."unit:0a4d6738".smartshift]
 mode = "ratchet"
-auto_disengage = 12
+auto_disengage = 16
 tunable_torque = 0
 
 [devices."unit:0a4d6738".action_ring.default.slots.TopRight]
