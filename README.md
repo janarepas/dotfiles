@@ -162,11 +162,13 @@ ne helyezd a repóba. Az `autoconfig.yml` helyi marad és induláskor betöltőd
 a közös `config.py` beállításai utána elsőbbséget kapnak. Webhelyenkénti
 engedélyek, könyvjelzők, előzmények és munkamenetek nem kerülnek Gitbe.
 
-- `,g`: GitHub-keresés; `,y`: YouTube-keresés.
+- `,g`: GitHub-keresés relevancia szerint; `,y`: YouTube-keresés.
+- Kilépéskor figyelmeztet, ha még folyamatban van letöltés.
 - `,v`: az aktuális cím átadása mpv-nek, ha az mpv elérhető. macOS-on a
   Homebrew szokásos telepítési helyeit is ellenőrzi, mert a Finderből
   indított app PATH-ja eltérhet a terminálétól.
-- `,p`: Passwords megnyitása, csak macOS-on.
+- `,p`: Passwords megnyitása, csak macOS-on, az alkalmazás teljes útvonalával.
+- `⌘T`: új lap, normál és beviteli módban is, macOS-on a `Ctrl+T` helyett.
 - A sima görgetés és a lusta munkamenet-visszaállítás bekapcsolva, az
   automatikus médialejátszás kikapcsolva marad.
 - Reklámblokkolás: `both`, ha az opcionális `adblock` modul telepítve van,

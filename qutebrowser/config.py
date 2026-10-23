@@ -9,6 +9,7 @@ config.load_autoconfig()
 
 c.auto_save.session = True
 c.session.lazy_restore = True
+c.confirm_quit = ["downloads"]
 c.content.autoplay = False
 c.scrolling.smooth = True
 
@@ -20,7 +21,7 @@ c.content.javascript.clipboard = "ask"
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
     "aw": "https://wiki.archlinux.org/?search={}",
-    "gh": "https://github.com/search?o=desc&q={}&s=stars",
+    "gh": "https://github.com/search?q={}",
     "yt": "https://www.youtube.com/results?search_query={}",
 }
 
@@ -28,7 +29,11 @@ config.bind(",g", "cmd-set-text -s :open gh")
 config.bind(",y", "cmd-set-text -s :open yt")
 
 if sys.platform == "darwin":
-    config.bind(",p", "spawn /usr/bin/open -a Passwords")
+    config.bind(",p", "spawn /usr/bin/open -a /System/Applications/Passwords.app")
+    # macOS Command key; work both on pages and inside input fields.
+    config.bind("<Meta-t>", "open -t", mode="normal")
+    config.bind("<Meta-t>", "open -t", mode="insert")
+    config.unbind("<Ctrl-t>", mode="normal")
 
 # Finder-launched macOS apps may not inherit Homebrew's PATH.
 mpv = shutil.which("mpv")
