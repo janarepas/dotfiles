@@ -1,17 +1,28 @@
-let mapleader = " "
+" Use Vim defaults instead of Vi compatibility
 set nocompatible
-filetype plugin indent on
-set encoding=utf-8
-set syntax=on
 
+" Set leader keys before defining mappings
+let mapleader = " "
+let maplocalleader = " "
+
+" Enable filetype detection, plugins and indentation
+filetype plugin indent on
+
+" Enable UTF-8 and syntax highlighting
+set encoding=utf-8
+syntax enable
+
+" Appearance
 set number
 set relativenumber
 set cursorline
-set wrap
+set nowrap
 set scrolloff=8
+set sidescrolloff=8
 set wildmenu
 set showcmd
 
+" Indentation: two spaces
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -19,20 +30,44 @@ set softtabstop=2
 set autoindent
 set smartindent
 
+" Search
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 
+" Editing
 set backspace=indent,eol,start
 set hidden
-set nobackup
-set noswapfile
-set undofile
 
-" keymaps
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>e :Ex<CR>
+" Recovery and backups
+set nobackup
+set swapfile
+
+" Preserve undo history across sessions
+if has("persistent_undo")
+  let s:undo_dir = expand("~/.vim/undo")
+
+  if !isdirectory(s:undo_dir)
+    call mkdir(s:undo_dir, "p", 0700)
+  endif
+
+  let &undodir = s:undo_dir
+  set undofile
+endif
+
+" Save the current buffer
+nnoremap <silent> <Leader>w :write<CR>
+
+" Close the current window
+nnoremap <silent> <Leader>q :quit<CR>
+
+" Open the built-in file explorer
+nnoremap <silent> <Leader>e :Explore<CR>
+
+" Clear search highlighting
+nnoremap <silent> <Leader>h :nohlsearch<CR>
+
+" Leave insert mode
 inoremap jk <Esc>
 inoremap jj <Esc>
