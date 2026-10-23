@@ -1,5 +1,6 @@
 [window]
-opacity = 0.9
+opacity = 0.8
+blur = true
 dynamic_padding = true
 padding.x = 2
 padding.y = 2
@@ -24,4 +25,3 @@ style = "Bold"
 [font.italic]
 family = "MesloLGS Nerd Font Mono"
 style = "Italic"
-
