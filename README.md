@@ -171,7 +171,7 @@ engedélyek, könyvjelzők, előzmények és munkamenetek nem kerülnek Gitbe.
 - A macOS-os Command-billentyűk normál és beviteli módban is működnek:
   `⌘T` új lap, `⌘W` lapbezárás, `⌘⇧T` visszanyitás, `⌘N` új ablak,
   `⌘⇧N` privát ablak, `⌘⇧W` ablakbezárás, `⌘Q` kilépés,
-  `⌘L` címsor szerkesztése, `⌘R` frissítés, `⌘⇧R` kényszerített frissítés,
+  `⌘O` címsor szerkesztése, `⌘R` frissítés, `⌘⇧R` kényszerített frissítés,
   `⌘F` oldalon belüli keresés, `⌘G`/`⌘⇧G` következő/előző találat,
   `⌘[`/`⌘]` vissza/előre, `⌘⌥←`/`⌘⌥→` előző/következő lap,
   `⌘1`–`⌘8` lapszám, `⌘9` utolsó lap, `⌘+`/`⌘-` nagyítás/kicsinyítés,

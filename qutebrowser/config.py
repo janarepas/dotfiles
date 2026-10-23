@@ -39,7 +39,7 @@ if sys.platform == "darwin":
         "<Meta-Shift-n>": "open -p",
         "<Meta-Shift-w>": "close",
         "<Meta-q>": "quit",
-        "<Meta-l>": "cmd-set-text :open {url:pretty}",
+        "<Meta-o>": "cmd-set-text :open {url:pretty}",
         "<Meta-r>": "reload",
         "<Meta-Shift-r>": "reload -f",
         "<Meta-f>": "cmd-set-text /",
