@@ -12,3 +12,7 @@
 # Keep browser permissions, sessions and generated files out of version control.
 /qutebrowser/*
 !/qutebrowser/config.py
+
+# Track yt-dlp configuration only; keep cookies and download state local.
+/yt-dlp/*
+!/yt-dlp/config

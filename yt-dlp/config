@@ -1,0 +1,4 @@
+--js-runtimes deno:/Users/jrepas/.pkgx/deno.land/v2.9.7/bin/deno
+-f "bestvideo+bestaudio/best"
+--merge-output-format mp4
+-o "%(title)s.%(ext)s"

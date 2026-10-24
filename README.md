@@ -42,6 +42,7 @@ link_if_absent "$PWD/ghostty" "${XDG_CONFIG_HOME:-$HOME/.config}/ghostty"
 link_if_absent "$PWD/mpv" "${XDG_CONFIG_HOME:-$HOME/.config}/mpv"
 link_if_absent "$PWD/openlogi" "${XDG_CONFIG_HOME:-$HOME/.config}/openlogi"
 link_if_absent "$PWD/qutebrowser" "${XDG_CONFIG_HOME:-$HOME/.config}/qutebrowser"
+link_if_absent "$PWD/yt-dlp" "${XDG_CONFIG_HOME:-$HOME/.config}/yt-dlp"
 if [ "$(uname -s)" = Darwin ]; then
   mkdir -p "$HOME/.qutebrowser"
   link_if_absent "$PWD/qutebrowser/config.py" "$HOME/.qutebrowser/config.py"
@@ -186,3 +187,16 @@ engedélyek, könyvjelzők, előzmények és munkamenetek nem kerülnek Gitbe.
   visszaállítani: `:config-unset -u https://example.org content.javascript.clipboard`.
 
 Újratöltés a böngészőben: `:config-source`.
+
+## yt-dlp
+
+A `~/.config/yt-dlp` (vagy `$XDG_CONFIG_HOME/yt-dlp`) a repó `yt-dlp`
+könyvtárára mutasson. Csak a `config` fájl verziókövetett; cookie-k,
+bejelentkezési adatok és letöltési előzmények nem kerülhetnek a repóba.
+A yt-dlp, a Deno és az összeillesztéshez szükséges FFmpeg külön telepítendő.
+
+A meglévő konfiguráció változatlan: a legjobb külön video- és hangsávot
+választja, szükség esetén egyesített formátumra esik vissza, az egyesítés
+kimenete MP4, a fájlnév a videó címe. A Deno abszolút útvonala a jelenlegi
+macOS-géphez és telepített verzióhoz kötött; más gépen vagy Deno-frissítés
+után igazítsd a helyi telepítéshez.
