@@ -47,3 +47,17 @@ vim.api.nvim_create_user_command("DotfilesInstallPlugins", function()
 end, { desc = "Install the pinned TokyoNight theme (requires network)" })
 
 load_theme()
+
+-- Git integration
+local git_loaded = pcall(vim.cmd.packadd, "gitsigns.nvim")
+
+if git_loaded then
+  local ok, gitsigns = pcall(require, "gitsigns")
+
+  if ok then
+    gitsigns.setup({
+      signcolumn = true,
+      current_line_blame = false,
+    })
+  end
+end

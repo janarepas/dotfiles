@@ -1,10 +1,10 @@
-schema_version = 9
-selected_device = "unit:0a4d6738"
+schema_version = 10
+selected_device = "serial:2533cer2s1l8"
 
 [app_settings]
 launch_at_login = true
 check_for_updates = true
-auto_install_updates = false
+auto_install_updates = true
 update_prompt_seen = true
 show_in_menu_bar = true
 capture_mouse_events = true
@@ -21,8 +21,12 @@ mouse_profile_target = "pointer"
 low_battery_notifications = true
 lock_key_notifications = true
 animate_desktop_switch = true
+theme_light = "Default Light"
 
 [devices]
+
+[devices."serial:2533cer2s1l8"]
+custom_name = "Jana's MX Keys Mini"
 
 [devices."serial:2533cer2s1l8".identity]
 display_name = "MX Keys Mini"
@@ -69,6 +73,10 @@ backlight = false
 easy_switch = false
 virtual_thumbwheel = false
 pointer_scaling = false
+force_sensing = false
+disable_keys = false
+onboard_profiles = false
+button_spy = false
 
 [devices."serial:2533cer2s1l8".links."receiver:4c7c1b8574cabf81:slot:2".capabilities]
 buttons = true
@@ -87,6 +95,10 @@ backlight = true
 easy_switch = true
 virtual_thumbwheel = false
 pointer_scaling = false
+force_sensing = false
+disable_keys = true
+onboard_profiles = false
+button_spy = false
 
 [devices."serial:2533cer2s1l8".identity.capabilities]
 buttons = true
@@ -105,6 +117,10 @@ backlight = true
 easy_switch = true
 virtual_thumbwheel = false
 pointer_scaling = false
+force_sensing = false
+disable_keys = true
+onboard_profiles = false
+button_spy = false
 
 [devices."serial:2533cer2s1l8".links."receiver:4c7c1b8574cabf81:slot:4".capabilities]
 buttons = true
@@ -123,11 +139,17 @@ backlight = false
 easy_switch = false
 virtual_thumbwheel = false
 pointer_scaling = false
+force_sensing = false
+disable_keys = false
+onboard_profiles = false
+button_spy = false
 
 [devices."unit:0a4d6738"]
 dpi = 1200
-scroll_resolution = "low"
-dpi_presets = [800]
+scroll_resolution = "high"
+custom_name = "Jana's MX Master 3"
+smooth_wheel = true
+dpi_presets = [1200]
 
 [devices."unit:0a4d6738".identity]
 display_name = "MX Master 3"
@@ -172,6 +194,10 @@ backlight = false
 easy_switch = false
 virtual_thumbwheel = false
 pointer_scaling = false
+force_sensing = false
+disable_keys = false
+onboard_profiles = false
+button_spy = false
 
 [devices."unit:0a4d6738".links."direct:046d:b023".capabilities]
 buttons = true
@@ -190,9 +216,20 @@ backlight = false
 easy_switch = false
 virtual_thumbwheel = false
 pointer_scaling = false
+force_sensing = false
+disable_keys = false
+onboard_profiles = false
+button_spy = false
 
 [devices."unit:0a4d6738".bindings]
 DpiToggle = "ToggleSmartShift"
+
+[devices."unit:0a4d6738".bindings.GestureButton]
+Up = "MissionControl"
+Down = "ShowDesktop"
+Left = "PrevTab"
+Right = "NextTab"
+Click = "ShowActionsRing"
 
 [devices."unit:0a4d6738".identity.capabilities]
 buttons = true
@@ -211,33 +248,51 @@ backlight = false
 easy_switch = false
 virtual_thumbwheel = false
 pointer_scaling = false
+force_sensing = false
+disable_keys = false
+onboard_profiles = false
+button_spy = false
+
+[devices."unit:0a4d6738".action_ring.default.slots.Top]
+action = "Screenshot"
+
+[devices."unit:0a4d6738".action_ring.default.slots.TopRight]
+icon = "Terminal"
+
+[devices."unit:0a4d6738".action_ring.default.slots.TopRight.action.OpenApplication]
+path = "/System/Applications/Utilities/Terminal.app"
+display_name = "Terminal"
+
+[devices."unit:0a4d6738".action_ring.default.slots.Right.action ]
+CustomShortcut = "Cmd+Space"
+
+[devices."unit:0a4d6738".action_ring.default.slots.Right]
+icon = "Search"
 
 [devices."unit:0a4d6738".action_ring]
 enabled = true
 haptics = true
 
+[devices."unit:0a4d6738".action_ring.default.slots.BottomRight.action.OpenApplication]
+path = "/Users/jrepas/Downloads"
+display_name = "Downloads"
+
 [devices."unit:0a4d6738".smartshift]
 mode = "ratchet"
-auto_disengage = 16
+auto_disengage = 14
 tunable_torque = 0
 
-[devices."unit:0a4d6738".action_ring.default.slots.TopRight]
-action = "Copy"
-
-[devices."unit:0a4d6738".action_ring.default.slots.Right]
-action = "Paste"
-
 [devices."unit:0a4d6738".action_ring.default.slots.BottomRight]
-action = "BrowserForward"
+icon = "Save"
 
 [devices."unit:0a4d6738".action_ring.default.slots.Bottom]
-action = "PlayPause"
+action = "LockScreen"
 
 [devices."unit:0a4d6738".action_ring.default.slots.BottomLeft]
-action = "BrowserBack"
+action = "PlayPause"
 
 [devices."unit:0a4d6738".action_ring.default.slots.Left]
 action = "Undo"
 
 [devices."unit:0a4d6738".action_ring.default.slots.TopLeft]
-action = "Redo"
+action = "Paste"

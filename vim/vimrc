@@ -13,6 +13,23 @@ set encoding=utf-8
 syntax enable
 
 " Appearance
+" Load bundled colors from the real vimrc location, including through ~/.vimrc.
+let &runtimepath = fnamemodify(resolve(expand('<sfile>:p')), ':h') . ',' . &runtimepath
+if has('termguicolors')
+  set termguicolors
+endif
+set background=dark
+colorscheme tokyonight-night
+
+" Match Neovim's transparent TokyoNight background.
+highlight Normal guibg=NONE ctermbg=NONE
+highlight NormalNC guibg=NONE ctermbg=NONE
+highlight SignColumn guibg=NONE ctermbg=NONE
+highlight NormalSB guibg=NONE ctermbg=NONE
+highlight SignColumnSB guibg=NONE ctermbg=NONE
+highlight NormalFloat guibg=NONE ctermbg=NONE
+highlight FloatBorder guibg=NONE ctermbg=NONE
+
 set number
 set relativenumber
 set cursorline
@@ -43,6 +60,14 @@ set hidden
 " Recovery and backups
 set nobackup
 set swapfile
+
+" Keep recovery files private and out of project directories.
+let s:swap_dir = expand("~/.vim/swap")
+if !isdirectory(s:swap_dir)
+  call mkdir(s:swap_dir, "p", 0700)
+endif
+" The full source path distinguishes files with the same name.
+let &directory = escape(s:swap_dir, ' ,') . '//'
 
 " Preserve undo history across sessions
 if has("persistent_undo")

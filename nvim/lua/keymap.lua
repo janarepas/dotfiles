@@ -7,3 +7,8 @@ vim.keymap.set("n", "<leader>e", ":Ex<CR>")
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>", { silent = true })
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("i", "jj", "<Esc>")
+
+-- Project file search
+vim.keymap.set("n", "<leader>p", ":find ", {
+  desc = "Find project file",
+})
