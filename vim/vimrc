@@ -104,20 +104,24 @@ let &backupskip .= ',' . join(s:sensitive_patterns, ',')
 function! s:ProtectSensitiveBuffer() abort
   let l:name = expand('%:p')
   let l:resolved = resolve(l:name)
+  let l:private = exists("b:dotfiles_private_name")
   for l:pattern in s:sensitive_patterns
     let l:regex = glob2regpat(l:pattern)
     if l:name =~# l:regex || l:resolved =~# l:regex
-      if get(b:, 'dotfiles_private_name', '') !=# l:name
-        let &backupskip .= ',' . escape(escape(l:name, '*?[\]'), ',')
-        let b:dotfiles_private_name = l:name
-      endif
-      setlocal noswapfile nomodeline
-      if has('persistent_undo')
-        setlocal noundofile
-      endif
-      return
+      let l:private = 1
+      break
     endif
   endfor
+  if l:private
+    if get(b:, 'dotfiles_private_name', '') !=# l:name
+    let &backupskip .= ',' . escape(escape(l:name, '*?[\]'), ',')
+      let b:dotfiles_private_name = l:name
+    endif
+    setlocal noswapfile nomodeline
+    if has('persistent_undo')
+      setlocal noundofile
+    endif
+  endif
 endfunction
 
 augroup DotfilesPrivacy
