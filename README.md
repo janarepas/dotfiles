@@ -1,8 +1,9 @@
 # Dotfiles
 
-Minimal Vim-, Neovim-, tmux- és Ghostty-konfiguráció macOS és Linux rendszerekhez.
-Az Alacritty-konfiguráció eltávolítása szándékos. Shell-, PATH-, locale- és
-Linux-rendszerbeállításokat ez a repó nem kezel.
+Minimal Vim-, Neovim- és tmux-konfiguráció, valamint OpenLogi-,
+qutebrowser- és yt-dlp-beállítások macOS és Linux rendszerekhez.
+Az Alacritty-, Ghostty- és mpv-konfiguráció eltávolítása szándékos.
+Shell-, PATH-, locale- és Linux-rendszerbeállításokat ez a repó nem kezel.
 
 ## Követelmények
 
@@ -29,7 +30,9 @@ célokra készíts linket.
 mkdir -p "${XDG_CONFIG_HOME:-$HOME/.config}"
 # Meglévő cél esetén kihagyás: könyvtáron belül sem készül újabb link.
 link_if_absent() {
-  if [ -e "$2" ] || [ -L "$2" ]; then
+  if [ ! -e "$1" ]; then
+    echo "Hiányzó forrás, kihagyva: $1"
+  elif [ -e "$2" ] || [ -L "$2" ]; then
     echo "Már létezik, kihagyva: $2"
   else
     ln -s "$1" "$2"
@@ -38,8 +41,6 @@ link_if_absent() {
 link_if_absent "$PWD/nvim" "${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
 link_if_absent "$PWD/vim/vimrc" "$HOME/.vimrc"
 link_if_absent "$PWD/tmux/tmux.conf" "$HOME/.tmux.conf"
-link_if_absent "$PWD/ghostty" "${XDG_CONFIG_HOME:-$HOME/.config}/ghostty"
-link_if_absent "$PWD/mpv" "${XDG_CONFIG_HOME:-$HOME/.config}/mpv"
 link_if_absent "$PWD/openlogi" "${XDG_CONFIG_HOME:-$HOME/.config}/openlogi"
 link_if_absent "$PWD/qutebrowser" "${XDG_CONFIG_HOME:-$HOME/.config}/qutebrowser"
 link_if_absent "$PWD/yt-dlp" "${XDG_CONFIG_HOME:-$HOME/.config}/yt-dlp"
@@ -52,14 +53,6 @@ fi
 Ha már `~/.config/tmux` linket használsz, megtarthatod azt a `~/.tmux.conf`
 helyett; ne telepíts két eltérő tmux-konfigurációt. A linkek abszolútak:
 a klón áthelyezésekor újra létre kell hozni őket.
-
-## Ghostty
-
-A `~/.config/ghostty` (vagy `$XDG_CONFIG_HOME/ghostty`) a repó teljes `ghostty`
-könyvtárára mutasson; külön `config` fájllinkre nincs szükség. A Ghostty
-alkalmazást külön kell telepíteni. A konfiguráció ablakméretet, betűméretet,
-belső margót és áttetszőséget állít be; az elmosás platform- és
-ablakkezelőfüggő. Újratöltéshez használd a Ghostty Reload Configuration menüjét.
 
 ## Neovim: offline indulás és téma
 
@@ -128,6 +121,9 @@ link célja is számít. Az ideiglenes írási backupokra is vonatkozik a kizár
 A már érzékenynek jelölt buffer átnevezés után is védett marad.
 
 Más nevű érzékeny fájlnál szerkesztés előtt: `:setlocal noswapfile noundofile nomodeline`.
+Az ideiglenes írási backup kizárásához a fájl teljes útvonalát is add hozzá a
+`backupskip` opcióhoz, vagy indíts külön szerkesztőt `-n -i NONE` kapcsolókkal
+és `nobackup nowritebackup noundofile nomodeline` beállításokkal.
 Ez név alapú védelem; nem vizsgálja a tartalmat, és nem törli a korábban
 létrejött undo/swap fájlokat. A regiszterek, parancselőzmények, a rendszer
 vágólapja és a fájlrendszer korábbi másolatai külön kezelendők. Már nyitott
@@ -143,16 +139,14 @@ SSH célgépen is futtasd; a színek, billentyűk, vágólap és elmosás tényl
 működését a célgépen kell ellenőrizni.
 
 
-## mpv és OpenLogi
+## OpenLogi
 
-A `~/.config/mpv` és `~/.config/openlogi` (vagy az XDG_CONFIG_HOME alatti
-megfelelő könyvtárak) a repó `mpv` és `openlogi` könyvtáraira mutatnak.
-Az alkalmazásokat külön kell telepíteni. A Git csak az `mpv/mpv.conf` és
-az `openlogi/config.toml` fájlokat követi; a lejátszási állapot, socketek,
-lockfájlok és az alkalmazás által készített mentések helyben maradnak.
-Az OpenLogi konfiguráció eszközazonosítókat és eszközönkénti beállításokat
-tartalmaz; más gépen/eszközzel ezeket az alkalmazásban kell hozzáigazítani.
-
+A `~/.config/openlogi` (vagy `$XDG_CONFIG_HOME/openlogi`) a repó
+`openlogi` könyvtárára mutasson. Az alkalmazást külön kell telepíteni.
+Csak az `openlogi/config.toml` verziókövetett; a lockfájlok és az
+alkalmazás által készített mentések helyben maradnak.
+A konfiguráció eszközazonosítókat és eszközönkénti beállításokat tartalmaz;
+más gépen/eszközzel ezeket az alkalmazásban kell hozzáigazítani.
 
 ## qutebrowser
 
